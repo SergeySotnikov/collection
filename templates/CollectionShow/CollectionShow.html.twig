@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div>
+            Здесь будет выводиться  список всех коллекций
+        </div>
+
+        <h1 class="mb-4 text-center">My Collection List</h1>
+
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for collection in collection %}
+                    <div class="col">
+                        <div class="card text-white bg-primary">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h2 class="card-title">{{collection.name}}</h2>
+                                <h5 class="card-text"> {{collection.theme}}</h5>
+                                <h5 class="card-text"> {{collection.description}}</h5>
+                                <a href="{{path('app_collection_item')}}" class="mx-auto"><button type="button" class="btn-lg btn-warning mt-3">Перейти в коллекцию</button></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}
